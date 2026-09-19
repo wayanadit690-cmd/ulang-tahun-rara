@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun, Rara!</title>
+  <style>
+    :root {
+      --bg1: #fff7d6;
+      --bg2: #ffd9ec;
+      --bg3: #dff6ff;
+      --gold: #f7b731;
+      --pink: #ff5ca8;
+      --purple: #7b61ff;
+      --text: #3a2740;
+      --white: #ffffff;
+      --shadow: rgba(123, 97, 255, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .floating {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -180px;
+      width: 40px;
+      height: 50px;
+      border-radius: 50% 50% 45% 45%;
+      background: rgba(255, 255, 255, 0.44);
+      border: 2px solid rgba(255,255,255,0.5);
+      animation: floatUp linear infinite;
+      box-shadow: inset -8px -8px 16px rgba(255,255,255,0.2);
+    }
+
+    .balloon::before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: rgba(255,255,255,0.6);
+      left: 50%;
+      transform: translateX(-50%);
+      top: 48px;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 120px;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(18deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 0 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255,255,255,0.7);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--purple);
+      box-shadow: 0 8px 20px rgba(123, 97, 255, 0.12);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 5rem);
+      margin: 0;
+      line-height: 1.1;
+      color: var(--pink);
+      text-shadow: 0 4px 18px rgba(255, 92, 168, 0.18);
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      margin-top: 18px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .gift-box {
+      margin: 28px auto 0;
+      width: min(300px, 80vw);
+      padding: 18px 22px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #fff, #ffeaf5);
+      border: 1px solid rgba(255, 92, 168, 0.15);
+      box-shadow: 0 20px 30px rgba(255, 92, 168, 0.12);
+    }
+
+    .gift-box strong {
+      font-size: 1.2rem;
+      color: var(--purple);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .photo-card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 20px 32px var(--shadow);
+      border-radius: 26px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 36px rgba(123, 97, 255, 0.2);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 18px 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .message {
+      margin-top: 42px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 20px 30px rgba(123, 97, 255, 0.12);
+      border-radius: 28px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .message h2 {
+      margin: 0 0 12px;
+      color: var(--pink);
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+    }
+
+    .message p {
+      margin: 10px auto;
+      max-width: 760px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .cta {
+      margin-top: 26px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 16px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+    }
+
+    .primary {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      box-shadow: 0 16px 28px rgba(123, 97, 255, 0.2);
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.8);
+      color: var(--text);
+      border: 1px solid rgba(123, 97, 255, 0.12);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      font-weight: 700;
+      color: var(--purple);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card img {
+        height: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating">
+    <div class="balloon" style="left: 8%; animation-duration: 12s;"></div>
+    <div class="balloon" style="left: 20%; animation-duration: 15s; background: rgba(255, 192, 203, 0.5);"></div>
+    <div class="balloon" style="left: 38%; animation-duration: 13s; background: rgba(255, 215, 0, 0.4);"></div>
+    <div class="balloon" style="left: 56%; animation-duration: 16s; background: rgba(255, 153, 204, 0.45);"></div>
+    <div class="balloon" style="left: 72%; animation-duration: 14s; background: rgba(173, 216, 230, 0.45);"></div>
+    <div class="balloon" style="left: 88%; animation-duration: 17s; background: rgba(255, 223, 102, 0.45);"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <div class="badge">🎉 Selamat Ulang Tahun 🎉</div>
+      <h1>Happy Birthday, Rara!</h1>
+      <div class="subtitle">
+        Semoga hari ini penuh tawa, kebahagiaan, dan kenangan indah yang selalu kamu ingat.
+      </div>
+
+      <div class="gift-box">
+        <strong>Untuk Rara,</strong><br />
+        You are loved, you are appreciated, and you deserve all the happiness in the world.
+      </div>
+    </div>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="rara1.jpg" alt="Foto Rara 1" />
+        <div class="caption">✨ Smile yang selalu bikin hari lebih indah</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="rara2.jpg" alt="Foto Rara 2" />
+        <div class="caption">💖 Ceria dan selalu jadi pusat perhatian</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="rara3.jpg" alt="Foto Rara 3" />
+        <div class="caption">🌷 Semoga selalu bahagia dan tetap bersinar</div>
+      </div>
+    </div>
+
+    <div class="message">
+      <h2>Untuk Rara, Terima Kasih Sudah Ada</h2>
+      <p>
+        Hari ini bukan hanya sekadar ulang tahun, tapi juga momen untuk mengingat betapa
+        berartinya kamu dalam hidup orang-orang di sekitar kamu. Semoga kamu selalu diberi
+        kesehatan, kelapangan rezeki, kebahagiaan, dan banyak alasan untuk terus tersenyum.
+      </p>
+
+      <p>
+        Selamat ulang tahun, Rara! Semoga semua harapanmu menjadi kenyataan dan semua
+        langkah hidupmu selalu dipenuhi dengan kebahagiaan. Stay sweet, stay strong, stay shining.
+      </p>
+
+      <div class="cta">
+        <button class="primary" onclick="showWish()">Klik untuk doa spesial</button>
+        <button class="secondary" onclick="location.reload()">Refresh halaman</button>
+      </div>
+    </div>
+
+    <div class="footer">Made with love for Rara 💗</div>
+  </div>
+
+  <script>
+    function showWish() {
+      const message = "Semoga kamu selalu sehat, bahagia, sukses, dan selalu dikelilingi orang-orang yang menyayangi kamu. Selamat Ulang Tahun, Rara! 🎂✨";
+      alert(message);
+    }
+  </script>
+</body>
+</html>
