@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selamat Ulang Tahun, Rara!</title>
+
+  <title>Selamat Ulang Tahun Rara</title>
+
   <style>
     :root {
-      --bg1: #fff7d6;
-      --bg2: #ffd9ec;
-      --bg3: #dff6ff;
-      --gold: #f7b731;
-      --pink: #ff5ca8;
-      --purple: #7b61ff;
-      --text: #3a2740;
+      --navy: #17233c;
+      --blue: #284b76;
+      --gold: #c9a227;
+      --cream: #faf8f1;
       --white: #ffffff;
-      --shadow: rgba(123, 97, 255, 0.18);
+      --text: #303846;
+      --soft: #eef2f7;
     }
 
     * {
@@ -27,305 +27,463 @@
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      font-family: Georgia, "Times New Roman", serif;
       color: var(--text);
+      background: var(--cream);
       overflow-x: hidden;
     }
 
-    .floating {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .balloon {
-      position: absolute;
-      bottom: -180px;
-      width: 40px;
-      height: 50px;
-      border-radius: 50% 50% 45% 45%;
-      background: rgba(255, 255, 255, 0.44);
-      border: 2px solid rgba(255,255,255,0.5);
-      animation: floatUp linear infinite;
-      box-shadow: inset -8px -8px 16px rgba(255,255,255,0.2);
-    }
-
-    .balloon::before {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 80px;
-      background: rgba(255,255,255,0.6);
-      left: 50%;
-      transform: translateX(-50%);
-      top: 48px;
-    }
-
-    .balloon::after {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background: rgba(255,255,255,0.6);
-      border-radius: 50%;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 120px;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-120vh) rotate(18deg);
-        opacity: 0;
-      }
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
+    header {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      color: white;
+      background:
+        linear-gradient(rgba(23, 35, 60, 0.84), rgba(23, 35, 60, 0.84)),
+        url("rara1.jpg") center/cover;
     }
 
     .hero {
-      text-align: center;
-      padding: 40px 0 30px;
+      max-width: 850px;
     }
 
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(255,255,255,0.7);
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      color: var(--purple);
-      box-shadow: 0 8px 20px rgba(123, 97, 255, 0.12);
-      margin-bottom: 18px;
+    .small-title {
+      color: #e8cf75;
+      font-size: 1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(2.3rem, 5vw, 5rem);
       margin: 0;
-      line-height: 1.1;
-      color: var(--pink);
-      text-shadow: 0 4px 18px rgba(255, 92, 168, 0.18);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: normal;
+      line-height: 1;
+      color: white;
     }
 
-    .subtitle {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      margin-top: 18px;
-      font-weight: 600;
-      color: var(--text);
+    .hero-line {
+      width: 90px;
+      height: 3px;
+      margin: 28px auto;
+      background: var(--gold);
     }
 
-    .gift-box {
-      margin: 28px auto 0;
-      width: min(300px, 80vw);
-      padding: 18px 22px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #fff, #ffeaf5);
-      border: 1px solid rgba(255, 92, 168, 0.15);
-      box-shadow: 0 20px 30px rgba(255, 92, 168, 0.12);
+    .hero-text {
+      max-width: 650px;
+      margin: auto;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.8;
+      color: #f6f3e8;
     }
 
-    .gift-box strong {
-      font-size: 1.2rem;
-      color: var(--purple);
+    .button {
+      border: 0;
+      cursor: pointer;
+      padding: 14px 24px;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: 0.25s ease;
     }
 
-    .photo-grid {
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .gold-button {
+      margin-top: 28px;
+      background: var(--gold);
+      color: white;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .music-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 10;
+      background: var(--navy);
+      color: white;
+      border: 2px solid var(--gold);
+      border-radius: 50px;
+      padding: 13px 18px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: normal;
+    }
+
+    .section-heading p {
+      margin: 0 auto;
+      max-width: 650px;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      color: #687386;
+    }
+
+    .gold-line {
+      width: 65px;
+      height: 2px;
+      margin: 18px auto;
+      background: var(--gold);
+    }
+
+    .gallery {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 22px;
-      margin-top: 35px;
     }
 
     .photo-card {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 0 20px 32px var(--shadow);
-      border-radius: 26px;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .photo-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 36px rgba(123, 97, 255, 0.2);
+      background: white;
+      padding: 10px;
+      box-shadow: 0 12px 28px rgba(23, 35, 60, 0.1);
+      border: 1px solid #e9e5d8;
     }
 
     .photo-card img {
       display: block;
       width: 100%;
-      height: 360px;
+      height: 340px;
       object-fit: cover;
     }
 
-    .caption {
-      padding: 18px 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
+    .photo-caption {
+      padding: 17px 10px 10px;
       text-align: center;
+      color: var(--navy);
+      font-size: 1.05rem;
     }
 
-    .message {
-      margin-top: 42px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 0 20px 30px rgba(123, 97, 255, 0.12);
-      border-radius: 28px;
-      padding: 28px 20px;
+    .message-section {
+      background: var(--soft);
+      max-width: none;
+    }
+
+    .message-box {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      border-left: 5px solid var(--gold);
+      padding: 35px;
+      box-shadow: 0 12px 28px rgba(23, 35, 60, 0.08);
+    }
+
+    .message-box p {
+      margin: 0 0 18px;
+      font-size: 1.12rem;
+      line-height: 1.9;
+    }
+
+    .message-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .signature {
+      margin-top: 25px;
+      text-align: right;
+      color: var(--blue);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    .closing {
       text-align: center;
-    }
-
-    .message h2 {
-      margin: 0 0 12px;
-      color: var(--pink);
-      font-size: clamp(1.7rem, 3vw, 2.6rem);
-    }
-
-    .message p {
-      margin: 10px auto;
-      max-width: 760px;
-      font-size: 1.08rem;
-      line-height: 1.8;
-      color: var(--text);
-    }
-
-    .cta {
-      margin-top: 26px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 16px 28px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    button:hover {
-      transform: translateY(-3px);
-    }
-
-    .primary {
-      background: linear-gradient(135deg, var(--pink), var(--purple));
+      padding: 80px 20px 110px;
+      background: var(--navy);
       color: white;
-      box-shadow: 0 16px 28px rgba(123, 97, 255, 0.2);
     }
 
-    .secondary {
-      background: rgba(255,255,255,0.8);
-      color: var(--text);
-      border: 1px solid rgba(123, 97, 255, 0.12);
+    .closing h2 {
+      margin: 0 0 14px;
+      color: #e8cf75;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: normal;
     }
 
-    .footer {
+    .closing p {
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+      color: #e3e7ed;
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      padding: 22px;
       text-align: center;
-      margin-top: 28px;
-      font-weight: 700;
-      color: var(--purple);
-      font-size: 0.95rem;
+      background: #101a2c;
+      color: #b9c0cc;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 760px) {
-      .photo-grid {
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    @media (max-width: 750px) {
+      .gallery {
         grid-template-columns: 1fr;
       }
 
       .photo-card img {
-        height: 420px;
+        height: 400px;
+      }
+
+      .message-box {
+        padding: 25px 20px;
+      }
+
+      .music-button {
+        right: 12px;
+        bottom: 12px;
+        font-size: 0.85rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="floating">
-    <div class="balloon" style="left: 8%; animation-duration: 12s;"></div>
-    <div class="balloon" style="left: 20%; animation-duration: 15s; background: rgba(255, 192, 203, 0.5);"></div>
-    <div class="balloon" style="left: 38%; animation-duration: 13s; background: rgba(255, 215, 0, 0.4);"></div>
-    <div class="balloon" style="left: 56%; animation-duration: 16s; background: rgba(255, 153, 204, 0.45);"></div>
-    <div class="balloon" style="left: 72%; animation-duration: 14s; background: rgba(173, 216, 230, 0.45);"></div>
-    <div class="balloon" style="left: 88%; animation-duration: 17s; background: rgba(255, 223, 102, 0.45);"></div>
-  </div>
+  <canvas id="confetti-canvas"></canvas>
 
-  <div class="container">
+  <audio id="birthdayMusic" loop>
+    <source src="musik-ulang-tahun.mp3" type="audio/mpeg" />
+    Browser kamu tidak mendukung pemutar musik.
+  </audio>
+
+  <button class="music-button" id="musicButton">
+    🎵 Putar Musik
+  </button>
+
+  <header>
     <div class="hero">
-      <div class="badge">🎉 Selamat Ulang Tahun 🎉</div>
-      <h1>Happy Birthday, Rara!</h1>
-      <div class="subtitle">
-        Semoga hari ini penuh tawa, kebahagiaan, dan kenangan indah yang selalu kamu ingat.
-      </div>
+      <div class="small-title">Perayaan Ulang Tahun</div>
 
-      <div class="gift-box">
-        <strong>Untuk Rara,</strong><br />
-        You are loved, you are appreciated, and you deserve all the happiness in the world.
-      </div>
+      <h1>Rara</h1>
+
+      <div class="hero-line"></div>
+
+      <p class="hero-text">
+        Dengan penuh kebahagiaan, kami mengucapkan selamat ulang tahun
+        kepada Rara. Semoga hari istimewa ini membawa banyak kebahagiaan,
+        kesehatan, dan kesuksesan.
+      </p>
+
+      <button class="button gold-button" id="confettiButton">
+        Rayakan Sekarang ✨
+      </button>
     </div>
+  </header>
 
-    <div class="photo-grid">
-      <div class="photo-card">
-        <img src="rara1.jpg" alt="Foto Rara 1" />
-        <div class="caption">✨ Smile yang selalu bikin hari lebih indah</div>
-      </div>
-
-      <div class="photo-card">
-        <img src="rara2.jpg" alt="Foto Rara 2" />
-        <div class="caption">💖 Ceria dan selalu jadi pusat perhatian</div>
-      </div>
-
-      <div class="photo-card">
-        <img src="rara3.jpg" alt="Foto Rara 3" />
-        <div class="caption">🌷 Semoga selalu bahagia dan tetap bersinar</div>
-      </div>
-    </div>
-
-    <div class="message">
-      <h2>Untuk Rara, Terima Kasih Sudah Ada</h2>
+  <section>
+    <div class="section-heading">
+      <h2>Momen-Momen Berharga</h2>
+      <div class="gold-line"></div>
       <p>
-        Hari ini bukan hanya sekadar ulang tahun, tapi juga momen untuk mengingat betapa
-        berartinya kamu dalam hidup orang-orang di sekitar kamu. Semoga kamu selalu diberi
-        kesehatan, kelapangan rezeki, kebahagiaan, dan banyak alasan untuk terus tersenyum.
+        Beberapa kenangan indah yang menjadi bagian dari perjalanan Rara.
+      </p>
+    </div>
+
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="rara1.jpg" alt="Foto Rara pertama" />
+        <div class="photo-caption">Senyum yang selalu membawa kebahagiaan</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="rara2.jpg" alt="Foto Rara kedua" />
+        <div class="photo-caption">Sosok yang penuh semangat dan kebaikan</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="rara3.jpg" alt="Foto Rara ketiga" />
+        <div class="photo-caption">Kenangan indah yang akan selalu dikenang</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="message-section">
+    <div class="section-heading">
+      <h2>Ucapan Untuk Rara</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="message-box">
+      <p>
+        Selamat ulang tahun, Rara. Semoga bertambahnya usia membawa
+        kedewasaan, kebijaksanaan, serta banyak kesempatan baru dalam hidup.
       </p>
 
       <p>
-        Selamat ulang tahun, Rara! Semoga semua harapanmu menjadi kenyataan dan semua
-        langkah hidupmu selalu dipenuhi dengan kebahagiaan. Stay sweet, stay strong, stay shining.
+        Semoga setiap langkah yang kamu jalani selalu dipenuhi kesehatan,
+        kebahagiaan, keberhasilan, dan orang-orang baik yang selalu mendukungmu.
       </p>
 
-      <div class="cta">
-        <button class="primary" onclick="showWish()">Klik untuk doa spesial</button>
-        <button class="secondary" onclick="location.reload()">Refresh halaman</button>
+      <p>
+        Terima kasih sudah menjadi pribadi yang baik, kuat, dan menyenangkan.
+        Semoga semua cita-cita dan harapanmu dapat terwujud.
+      </p>
+
+      <div class="signature">
+        Dengan doa dan harapan terbaik,<br />
+        Untuk Rara tercinta
       </div>
     </div>
+  </section>
 
-    <div class="footer">Made with love for Rara 💗</div>
+  <div class="closing">
+    <h2>Selamat Ulang Tahun, Rara</h2>
+    <p>
+      Semoga tahun ini menjadi awal dari banyak hal baik dan kenangan yang
+      lebih indah. Tetap bersinar dan terus menjadi versi terbaik dari dirimu.
+    </p>
   </div>
+
+  <footer>
+    Dibuat dengan penuh doa dan kasih sayang untuk Rara.
+  </footer>
 
   <script>
-    function showWish() {
-      const message = "Semoga kamu selalu sehat, bahagia, sukses, dan selalu dikelilingi orang-orang yang menyayangi kamu. Selamat Ulang Tahun, Rara! 🎂✨";
-      alert(message);
+    const music = document.getElementById("birthdayMusic");
+    const musicButton = document.getElementById("musicButton");
+    const confettiButton = document.getElementById("confettiButton");
+    const canvas = document.getElementById("confetti-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let musicPlaying = false;
+    let confettiPieces = [];
+    let animationRunning = false;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    musicButton.addEventListener("click", async () => {
+      if (musicPlaying) {
+        music.pause();
+        musicPlaying = false;
+        musicButton.textContent = "🎵 Putar Musik";
+      } else {
+        try {
+          await music.play();
+          musicPlaying = true;
+          musicButton.textContent = "⏸️ Jeda Musik";
+        } catch (error) {
+          alert("Musik belum bisa diputar. Pastikan file musik sudah di-upload.");
+        }
+      }
+    });
+
+    function createConfetti() {
+      const colors = [
+        "#c9a227",
+        "#17233c",
+        "#284b76",
+        "#e8cf75",
+        "#ffffff",
+        "#d96c75"
+      ];
+
+      confettiPieces = [];
+
+      for (let i = 0; i < 180; i++) {
+        confettiPieces.push({
+          x: Math.random() * canvas.width,
+          y: -Math.random() * canvas.height,
+          width: Math.random() * 9 + 5,
+          height: Math.random() * 15 + 7,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speed: Math.random() * 4 + 2,
+          rotation: Math.random() * 360,
+          rotationSpeed: Math.random() * 8 - 4,
+          drift: Math.random() * 2 - 1
+        });
+      }
+
+      if (!animationRunning) {
+        animationRunning = true;
+        animateConfetti();
+      }
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      confettiPieces.forEach((piece) => {
+        piece.y += piece.speed;
+        piece.x += piece.drift;
+        piece.rotation += piece.rotationSpeed;
+
+        ctx.save();
+        ctx.translate(piece.x, piece.y);
+        ctx.rotate((piece.rotation * Math.PI) / 180);
+        ctx.fillStyle = piece.color;
+        ctx.fillRect(
+          -piece.width / 2,
+          -piece.height / 2,
+          piece.width,
+          piece.height
+        );
+        ctx.restore();
+      });
+
+      confettiPieces = confettiPieces.filter(
+        (piece) => piece.y < canvas.height + 40
+      );
+
+      if (confettiPieces.length > 0) {
+        requestAnimationFrame(animateConfetti);
+      } else {
+        animationRunning = false;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    confettiButton.addEventListener("click", () => {
+      createConfetti();
+      confettiButton.textContent = "Selamat Ulang Tahun, Rara! 🎉";
+
+      setTimeout(() => {
+        confettiButton.textContent = "Rayakan Lagi ✨";
+      }, 3500);
+    });
+
+    window.addEventListener("load", () => {
+      setTimeout(createConfetti, 700);
+    });
   </script>
 </body>
 </html>
